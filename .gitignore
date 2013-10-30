@@ -4,3 +4,13 @@
 *.jar
 *.war
 *.ear
+
+/build
+/suite
+/j2meclasses
+
+!/lib/*.jar
+!/lib/*/*.jar
+!/lib/*
+!/.classpath
+!/.project
