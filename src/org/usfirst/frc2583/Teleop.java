@@ -17,7 +17,5 @@ public class Teleop {
 		motor_l = Math.pow(motor_l, 2) * sign_l;
 		motor_r = Math.pow(motor_r, 2) * sign_r;
 		Globals.m_driveMain.tankDrive(Globals.m_joy1, 0, Globals.m_joy1, 1);
-				
 	}
-
 }

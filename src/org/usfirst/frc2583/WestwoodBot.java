@@ -7,7 +7,6 @@
 
 package org.usfirst.frc2583;
 
-
 import org.usfirst.frc2583.commands.CommandBase;
 import org.usfirst.frc2583.commands.ExampleCommand;
 
@@ -27,7 +26,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
  */
 public class WestwoodBot extends IterativeRobot {
 	
-	Autonomous automode;
+	Autonomous autono;
 	Teleop teleop;
 
     Command autonomousCommand;
@@ -57,7 +56,7 @@ public class WestwoodBot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         autonomousCommand.start();
-        automode = new Autonomous();
+        autono = new Autonomous();
     }
 
     /**
@@ -68,6 +67,8 @@ public class WestwoodBot extends IterativeRobot {
     	Watchdog.getInstance().feed();
     	
         Scheduler.getInstance().run();
+        
+        autono.run();
     }
 
     /**
