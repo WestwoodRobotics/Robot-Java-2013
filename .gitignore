@@ -5,6 +5,8 @@
 *.war
 *.ear
 
+*.sublime-*
+
 /build
 
 !/lib/*.jar
