@@ -5,6 +5,8 @@
 *.war
 *.ear
 
+/build
+
 !/lib/*.jar
 !/lib/*/*.jar
 !/lib/*
