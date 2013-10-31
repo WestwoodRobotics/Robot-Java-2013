@@ -8,14 +8,15 @@
 package org.usfirst.frc2583;
 
 
+import org.usfirst.frc2583.commands.CommandBase;
+import org.usfirst.frc2583.commands.ExampleCommand;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Watchdog;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-
-import org.usfirst.frc2583.commands.CommandBase;
-import org.usfirst.frc2583.commands.ExampleCommand;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,10 +27,8 @@ import org.usfirst.frc2583.commands.ExampleCommand;
  */
 public class WestwoodBot extends IterativeRobot {
 	
-	//Front Left, Rear Left, Front Right, Rear Right (PWM Ports)
-	RobotDrive driveMain = new RobotDrive(1, 3, 2, 4);
-	public static Joystick joy1 = new Joystick(1);
-	public static Joystick joy2 = new Joystick(2);
+	Autonomous automode;
+	Teleop teleop;
 
     Command autonomousCommand;
 
@@ -38,23 +37,66 @@ public class WestwoodBot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
+    	
+    	//Joystick Variables
+    	Globals.m_joy1 = new Joystick(1);
+    	Globals.m_joy2 = new Joystick(2);
+    	//Front Left, Rear Left, Front Right, Rear Right (PWM Ports)
+    	Globals.m_driveMain = new RobotDrive(1, 3, 2, 4);
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
 
         // Initialize all subsystems
         CommandBase.init();
+        
+        //Disable ONLY FOR DEBUG
+        //RE-ENABLE BEFORE DEPLOY
+        Watchdog.getInstance().setEnabled(true);
     }
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
         autonomousCommand.start();
+        automode = new Autonomous();
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
+    	// feed the user watchdog at every period when in autonomous
+    	Watchdog.getInstance().feed();
+    	
         Scheduler.getInstance().run();
+    }
+
+    /**
+     * Called when the robot is first disabled
+     */
+
+    public void disabledInit() {
+
+    }
+
+    /**
+     * Called periodically during the disabled time based 
+     * on a periodic timer for the class. 
+     */
+
+    public void disabledPeriodic() {
+    	// feed the user watchdog at every period when in autonomous
+    	Watchdog.getInstance().feed();
+
+    }
+
+    /**
+     * Called continuously while the robot is disabled. Each 
+     * time the program returns from this function, it is 
+     * immediately called again provided that the state 
+     * hasn’t changed. 
+     */
+    public void disabledContinuous() {
+
     }
 
     public void teleopInit() {
@@ -63,13 +105,17 @@ public class WestwoodBot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		autonomousCommand.cancel();
+		teleop = new Teleop();
     }
 
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+    	// feed the user watchdog at every period when in autonomous
+    	Watchdog.getInstance().feed();
+    	
         Scheduler.getInstance().run();
-        driveMain.tankDrive(joy1, 0, joy1, 1);
+        teleop.run();
     }
 }

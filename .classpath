@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/WPILibJ/classes.jar"/>
-	<classpathentry kind="lib" path="lib/squawk_device.jar"/>
 	<classpathentry kind="lib" path="lib"/>
+	<classpathentry kind="lib" path="lib/squawk_device.jar"/>
 	<classpathentry kind="output" path="build"/>
 </classpath>
