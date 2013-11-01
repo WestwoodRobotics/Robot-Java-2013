@@ -26,9 +26,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
  * directory.
  */
 public class WestwoodBot extends IterativeRobot {
-	
-	Autonomous autono;
-	Teleop teleop;
 
     Command autonomousCommand;
 
@@ -52,7 +49,6 @@ public class WestwoodBot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         autonomousCommand.start();
-        autono = new Autonomous();
     }
 
     /**
@@ -63,8 +59,6 @@ public class WestwoodBot extends IterativeRobot {
     	Watchdog.getInstance().feed();
     	
         Scheduler.getInstance().run();
-        
-        autono.run();
     }
 
     /**
@@ -102,7 +96,6 @@ public class WestwoodBot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		autonomousCommand.cancel();
-		teleop = new Teleop();
     }
 
     /**
@@ -113,6 +106,5 @@ public class WestwoodBot extends IterativeRobot {
     	Watchdog.getInstance().feed();
     	
         Scheduler.getInstance().run();
-        teleop.run();
     }
 }
