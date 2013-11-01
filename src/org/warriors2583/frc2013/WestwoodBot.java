@@ -5,11 +5,12 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc2583;
+package org.warriors2583.frc2013;
 
-import org.usfirst.frc2583.commands.CommandBase;
-import org.usfirst.frc2583.commands.ExampleCommand;
+import org.warriors2583.frc2013.commands.CommandBase;
+import org.warriors2583.frc2013.commands.ExampleCommand;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -35,13 +36,8 @@ public class WestwoodBot extends IterativeRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    public void robotInit() {
+    public void robotInit() {    	
     	
-    	//Joystick Variables
-    	Globals.m_joy1 = new Joystick(1);
-    	Globals.m_joy2 = new Joystick(2);
-    	//Front Left, Rear Left, Front Right, Rear Right (PWM Ports)
-    	Globals.m_driveMain = new RobotDrive(1, 3, 2, 4);
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
 

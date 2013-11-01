@@ -1,7 +1,6 @@
-MIDlet-Name: WestwoodBot
+MIDlet-Name: Robot-Java-2013
 MIDlet-Version: 1.0.0
 MIDlet-Vendor: FIRST
-MIDlet-1: WestwoodBot, , org.usfirst.frc2583.WestwoodBot
+MIDlet-1: WestwoodBot, ,  org.warriors2583.frc2013.WestwoodBot
 MicroEdition-Profile: IMP-1.0
 MicroEdition-Configuration: CLDC-1.1
-

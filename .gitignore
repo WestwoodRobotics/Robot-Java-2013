@@ -6,11 +6,3 @@
 *.ear
 
 *.sublime-*
-
-/build
-
-!/lib/*.jar
-!/lib/*/*.jar
-!/lib/*
-!/.classpath
-!/.project
