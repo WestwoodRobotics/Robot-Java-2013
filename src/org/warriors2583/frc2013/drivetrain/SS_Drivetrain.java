@@ -9,15 +9,15 @@ import org.warriors2583.frc2013.RMap;
  *
  * @author Austin Reuland
  */
-public class Drivetrain extends Subsystem {
+public class SS_Drivetrain extends Subsystem {
     
     public static final Talon motor_left, motor_right;
     
     public static final RobotDrive driveMain;
 	
-    public static final Drivetrain instance = new Drivetrain();
+    public static final SS_Drivetrain instance = new SS_Drivetrain();
 
-    public static Drivetrain getInstance() {
+    public static SS_Drivetrain getInstance() {
             return instance;
     }
 
@@ -29,7 +29,7 @@ public class Drivetrain extends Subsystem {
     }
     
     
-    private Drivetrain(){
+    private SS_Drivetrain(){
 	super("Drivetrain");
     }
     
@@ -48,7 +48,7 @@ public class Drivetrain extends Subsystem {
 
 
     protected void initDefaultCommand() {
-	setDefaultCommand(new Command_TeleopDrive());
+	setDefaultCommand(new C_TeleopDrive());
 
     }
 

@@ -16,6 +16,8 @@ public class RMap {
 			DRIVE_LEFT = 1,
 			DRIVE_RIGHT = 2,
 			
+			MODULE_MOTOR = 1,
+
 			MOTOR_SHOOTER = 3,
 			MOTOR_LEADSCREW = 4,
 			MOTOR_LIFT1 = 5,
@@ -24,11 +26,13 @@ public class RMap {
 		
 			POT_1 = 2,
 		
-			SUCTION_VALVE = 1,
-		 	SUCTION_ARM = 2,
-		 	SUCTION_ROTATE = 3,
-		 	FEEDER = 4,
-		 	LIFT_VALVE = 5,
+			MODULE_SOLENOID_MAIN = 1,
+
+			SOLENOID_SUCTION_VALVE = 1,
+		 	SOLENOID_SUCTION_ARM = 2,
+		 	SOLENOID_SUCTION_ROTATE = 3,
+		 	SOLENOID_FEEDER = 4,
+		 	SOLENOID_LIFT_VALVE = 5,
 		
 		 	RELAY_COMPRESSOR = 1,
 		 	RELAY_LED = 2,

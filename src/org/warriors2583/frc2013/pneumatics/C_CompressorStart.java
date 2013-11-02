@@ -1,38 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.warriors2583.frc2013.drivetrain;
+package org.warriors2583.frc2013.pneumatics;
 
-import org.warriors2583.frc2013.OI;
-import org.warriors2583.frc2013.commands.CommandBase;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  * @author Austin Reuland
  */
-public class Command_TeleopDrive extends CommandBase {
+public class C_CompressorStart extends Command {
     
-    public Command_TeleopDrive() {
+
+    public C_CompressorStart() {
         // Use requires() here to declare subsystem dependencies
-	// eg. requires(chassis);
-	super("Command_TeleopDrive");
-	requires(Drivetrain.getInstance());
+        // eg. requires(chassis);
+        requires(SS_Compressor.getInstance());
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        SS_Compressor.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-	Drivetrain.arcade(OI.getJDriveY0(), OI.getJDriveX1());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-	return false;
+        return false;
     }
 
     // Called once after isFinished returns true
@@ -42,6 +36,5 @@ public class Command_TeleopDrive extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-	end();
     }
 }

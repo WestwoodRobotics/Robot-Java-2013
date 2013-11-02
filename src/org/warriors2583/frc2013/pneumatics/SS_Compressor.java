@@ -1,5 +1,6 @@
 package org.warriors2583.frc2013.pneumatics;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.warriors2583.frc2013.RMap;
 
@@ -7,13 +8,13 @@ import org.warriors2583.frc2013.RMap;
  *
  * @author Austin Reuland
  */
-public class Compressor extends Subsystem {
+public class SS_Compressor extends Subsystem {
     
-    private static final edu.wpi.first.wpilibj.Compressor compressor = new edu.wpi.first.wpilibj.Compressor(RMap.DIO_COMPRESSOR, RMap.RELAY_COMPRESSOR);
+    private static final Compressor compressor = new Compressor(RMap.DIO_COMPRESSOR, RMap.RELAY_COMPRESSOR);
     
-    private static final Compressor instance = new Compressor();
+    private static final SS_Compressor instance = new SS_Compressor();
     
-    public static Compressor getInstance() {
+    public static SS_Compressor getInstance() {
 	return instance;
     }
     
@@ -27,6 +28,6 @@ public class Compressor extends Subsystem {
     
 
     protected void initDefaultCommand() {
-	setDefaultCommand(new Command_CompressorStart());
+	setDefaultCommand(new C_CompressorStart());
     }
 }

@@ -10,10 +10,7 @@ package org.warriors2583.frc2013;
 import org.warriors2583.frc2013.commands.CommandBase;
 import org.warriors2583.frc2013.commands.ExampleCommand;
 
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Watchdog;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -33,7 +30,7 @@ public class WestwoodBot extends IterativeRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    public void robotInit() {    	
+    public void robotInit(){    	
     	
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
@@ -46,7 +43,7 @@ public class WestwoodBot extends IterativeRobot {
         Watchdog.getInstance().setEnabled(true);
     }
 
-    public void autonomousInit() {
+    public void autonomousInit(){
         // schedule the autonomous command (example)
         autonomousCommand.start();
     }
@@ -65,7 +62,7 @@ public class WestwoodBot extends IterativeRobot {
      * Called when the robot is first disabled
      */
 
-    public void disabledInit() {
+    public void disabledInit(){
 
     }
 
@@ -86,11 +83,11 @@ public class WestwoodBot extends IterativeRobot {
      * immediately called again provided that the state 
      * hasn’t changed. 
      */
-    public void disabledContinuous() {
+    public void disabledContinuous(){
 
     }
 
-    public void teleopInit() {
+    public void teleopInit(){
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
@@ -101,7 +98,7 @@ public class WestwoodBot extends IterativeRobot {
     /**
      * This function is called periodically during operator control
      */
-    public void teleopPeriodic() {
+    public void teleopPeriodic(){
     	// feed the user watchdog at every period when in autonomous
     	Watchdog.getInstance().feed();
     	
