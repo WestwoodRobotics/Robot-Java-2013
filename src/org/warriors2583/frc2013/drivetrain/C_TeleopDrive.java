@@ -1,13 +1,14 @@
 package org.warriors2583.frc2013.drivetrain;
 
+import edu.wpi.first.wpilibj.command.Command;
+
 import org.warriors2583.frc2013.OI;
-import org.warriors2583.frc2013.commands.CommandBase;
 
 /**
  *
  * @author Austin Reuland
  */
-public class C_TeleopDrive extends CommandBase {
+public class C_TeleopDrive extends Command {
 	
 	public C_TeleopDrive() {
 		// Use requires() here to declare subsystem dependencies
