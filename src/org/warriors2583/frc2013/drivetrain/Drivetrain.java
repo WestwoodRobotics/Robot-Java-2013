@@ -5,6 +5,10 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.warriors2583.frc2013.RMap;
 
+/**
+ *
+ * @author Austin Reuland
+ */
 public class Drivetrain extends Subsystem {
     
     public static final Talon motor_left, motor_right;
@@ -24,6 +28,12 @@ public class Drivetrain extends Subsystem {
 	driveMain = new RobotDrive(motor_left, motor_right);
     }
     
+    
+    private Drivetrain(){
+	super("Drivetrain");
+    }
+    
+    
     public static void tank(double l, double r) {
         driveMain.tankDrive(l, r);
     }
@@ -38,7 +48,7 @@ public class Drivetrain extends Subsystem {
 
 
     protected void initDefaultCommand() {
-	// TODO Auto-generated method stub
+	setDefaultCommand(new Command_TeleopDrive());
 
     }
 
