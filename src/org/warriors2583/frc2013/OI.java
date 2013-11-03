@@ -10,11 +10,9 @@ public class OI {
 	
 	public static final Joystick joy_drive, joy_shoot;
 	
-	static {
-		
+	static{
 		joy_drive = new Joystick(RMap.JOY_DRIVE);
 		joy_shoot = new Joystick(RMap.JOY_SHOOT);
-
 	}
 
 	public static double getJDriveLeftX(){ return joy_drive.getX(); }

@@ -11,26 +11,26 @@ import org.warriors2583.frc2013.RMap;
  */
 public class SS_Drivetrain extends Subsystem {
 	
-	public static final Talon motor_left, motor_right;
+	private static final Talon motor_left, motor_right;
 	
-	public static final RobotDrive driveMain;
+	private static final RobotDrive driveMain;
 	
-	public static final SS_Drivetrain instance = new SS_Drivetrain();
+	private static final SS_Drivetrain instance = new SS_Drivetrain();
 
 	public static SS_Drivetrain getInstance() {
-			return instance;
+		return instance;
 	}
 
 	static {
 		motor_left = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_LEFT);
-	motor_right = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_RIGHT);
+		motor_right = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_RIGHT);
 	
-	driveMain = new RobotDrive(motor_left, motor_right);
+		driveMain = new RobotDrive(motor_left, motor_right);
 	}
 	
 	
 	private SS_Drivetrain(){
-	super("Drivetrain");
+		super("SS_Drivetrain");
 	}
 	
 	
@@ -39,17 +39,16 @@ public class SS_Drivetrain extends Subsystem {
 	}
 	
 	public static void arcade(double throt, double rot) {
-	driveMain.arcadeDrive(throt, rot);
+		driveMain.arcadeDrive(throt, rot);
 	}
 	
 	public static void drive(double mag, double curve) {
-	driveMain.drive(mag, curve);
+		driveMain.drive(mag, curve);
 	}
 
 
 	protected void initDefaultCommand() {
-	setDefaultCommand(new C_TeleopDrive());
-
+		setDefaultCommand(new C_TeleopDrive());
 	}
 
 }

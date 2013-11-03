@@ -12,9 +12,9 @@ public class C_TeleopDrive extends Command {
 	
 	public C_TeleopDrive() {
 		// Use requires() here to declare subsystem dependencies
-	// eg. requires(chassis);
-	super("Command_TeleopDrive");
-	requires(SS_Drivetrain.getInstance());
+		// eg. requires(chassis);
+		super("C_TeleopDrive");
+		requires(SS_Drivetrain.getInstance());
 	}
 
 	// Called just before this Command runs the first time
@@ -23,12 +23,12 @@ public class C_TeleopDrive extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-	SS_Drivetrain.arcade(OI.getJDriveLeftY(), OI.getJDriveRightX());
+		SS_Drivetrain.arcade(OI.getJDriveLeftY(), OI.getJDriveRightX());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-	return false;
+		return false;
 	}
 
 	// Called once after isFinished returns true
@@ -38,6 +38,6 @@ public class C_TeleopDrive extends Command {
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-	end();
+		end();
 	}
 }

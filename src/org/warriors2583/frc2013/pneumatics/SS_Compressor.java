@@ -15,19 +15,45 @@ public class SS_Compressor extends Subsystem {
 	private static final SS_Compressor instance = new SS_Compressor();
 	
 	public static SS_Compressor getInstance() {
-	return instance;
+		return instance;
 	}
 	
-	public static void start() {
-	compressor.start();
+	private SS_Compressor(){
+		super("SS_Compressor");
 	}
 	
-	public static void stop() {
-	compressor.stop();
+	/**
+	 * Enable the Compressor control loop
+	 */
+	public static void start(){
+		compressor.start();
 	}
 	
-
+	/**
+	 * Disable the Compressor control loop
+	 */	
+	public static void stop(){
+		compressor.stop();
+	}
+	
+	/**
+	 * Get the current enabled state of the compressor
+	 * @return compressor enabled state
+	 */
+	public static boolean isOn(){
+		return compressor.enabled();
+	}
+	
+	/**
+	 * Get the current running state of the compressor (are we compressing)
+	 * @return compressor running state
+	 */
+	public static boolean isRunning(){
+		return compressor.getPressureSwitchValue();
+	}
+	
+	
 	protected void initDefaultCommand() {
-	setDefaultCommand(new C_CompressorStart());
+		setDefaultCommand(new C_CompressorStart());
 	}
 }

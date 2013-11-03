@@ -8,7 +8,8 @@ package org.warriors2583.frc2013;
  */
 public class RMap {
 	
-	public static final int JOY_DRIVE = 1,
+	public static final int
+			JOY_DRIVE = 1,
 			JOY_SHOOT = 2,
 			
 			MODULE_DRIVE = 1,
@@ -25,6 +26,8 @@ public class RMap {
 			MOTOR_LIFT3 = 7,
 		
 			POT_1 = 2,
+			POT_1_AVGBITS = 5,
+			POT_1_OVRBITS = 6,
 		
 			MODULE_SOLENOID_MAIN = 1,
 
@@ -36,6 +39,8 @@ public class RMap {
 		
 			RELAY_COMPRESSOR = 1,
 			RELAY_LED = 2,
+
+			MODULE_DIO = 1,
 		 
 			DIO_COMPRESSOR = 1,
 			DIO_FRISBEECATCH = 5,

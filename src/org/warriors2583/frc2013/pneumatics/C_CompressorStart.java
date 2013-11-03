@@ -12,6 +12,7 @@ public class C_CompressorStart extends Command {
 	public C_CompressorStart() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
+		super("C_CompressorStart");
 		requires(SS_Compressor.getInstance());
 	}
 
