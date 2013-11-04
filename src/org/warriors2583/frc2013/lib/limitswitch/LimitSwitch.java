@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.tables.ITable;
  *
  * @author Austin Reuland
  */
-public class LimitSwitch implements StandardSwitch, IInputOutput, LiveWindowSendable {
+public class LimitSwitch implements IStandardSwitch, IInputOutput, LiveWindowSendable {
 	
 	public static class SwitchType{
 		private final int type;

@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/WestwoodBot.java</file>
-            <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/pneumatics/SS_Compressor.java</file>
+            <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/lib/limitswitch/SingleLimitSwitchSystem.java</file>
+            <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/lib/limitswitch/LimitSwitchInterface.java</file>
+            <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/lib/limitswitch/LimitSwitch.java</file>
+            <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/shooter/C_ShooterAtAngle.java</file>
+            <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/shooter/SS_ShooterTray.java</file>
+            <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/lib/Potentiometer.java</file>
+            <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/lib/limitswitch/StandardSwitch.java</file>
+            <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/shooter/C_FeederExtend.java</file>
+            <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/shooter/CG_ShootFrisbee.java</file>
             <file>file:/home/wolf/Projects/Robot-Java-2013/src/org/warriors2583/frc2013/shooter/SS_Shooter.java</file>
         </group>
     </open-files>

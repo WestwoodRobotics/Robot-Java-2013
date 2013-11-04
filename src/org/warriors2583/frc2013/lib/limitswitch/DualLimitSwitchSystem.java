@@ -6,10 +6,9 @@ import org.warriors2583.frc2013.lib.limitswitch.LimitSwitch.SwitchType;
  *
  * @author Austin Reuland
  */
-public class DualLimitSwitchSystem implements LimitSwitchInterface{
+public class DualLimitSwitchSystem implements ILimitSwitchSystem{
 	
-	private LimitSwitch topSwitch;
-	private LimitSwitch bottomSwitch;
+	private LimitSwitch topSwitch, bottomSwitch;
 
 	public DualLimitSwitchSystem(int topChannel, SwitchType topType, int bottomChannel, SwitchType bottomType){
 		this(new LimitSwitch(topChannel, topType), new LimitSwitch(bottomChannel, bottomType));
