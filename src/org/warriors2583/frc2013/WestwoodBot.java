@@ -16,8 +16,10 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.warriors2583.frc2013.autonomous.CG_AutonomousShoot;
 import org.warriors2583.frc2013.pneumatics.C_CompressorStart;
+import org.warriors2583.frc2013.pneumatics.C_LiftHooksUp;
 import org.warriors2583.frc2013.pneumatics.SS_Compressor;
 import org.warriors2583.frc2013.shooter.SS_ShooterTray;
+import org.warriors2583.frc2013.teleop.CG_TeleopRun;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -48,11 +50,13 @@ public class WestwoodBot extends IterativeRobot {
 		//Disable ONLY FOR DEBUG
 		//RE-ENABLE BEFORE DEPLOY
 		Watchdog.getInstance().setEnabled(true);
+		
+		SmartDashboard.putNumber("", ROBOT_TASK_PRIORITY);
 	}
 
 	public void autonomousInit(){
 		auton.start();
-		compressor.start();
+		if(!SS_Compressor.isOn()) compressor.start();
 	}
 
 	/**
@@ -91,7 +95,7 @@ public class WestwoodBot extends IterativeRobot {
 	 * hasn’t changed. 
 	 */
 	public void disabledContinuous(){
-
+		
 	}
 
 	public void teleopInit(){
@@ -102,6 +106,8 @@ public class WestwoodBot extends IterativeRobot {
 		//autonomousCommand.cancel();
 		auton.cancel();
 		if(!SS_Compressor.isOn()) compressor.start();
+		(new C_LiftHooksUp()).start();
+		(new CG_TeleopRun()).start();
 	}
 
 	/**
@@ -112,6 +118,7 @@ public class WestwoodBot extends IterativeRobot {
 		Watchdog.getInstance().feed();
 		SmartDashboard.putNumber("Shooter Angle", SS_ShooterTray.getAngle());
 		SmartDashboard.putBoolean("Shooter Limit", SS_ShooterTray.atLimit());
+		SmartDashboard.putNumber(RMap.DASH_SHOOTER_SCALE, 0.4);
 		SmartDashboard.putBoolean("Compressor Running", SS_Compressor.isRunning());
 		
 		Scheduler.getInstance().run();

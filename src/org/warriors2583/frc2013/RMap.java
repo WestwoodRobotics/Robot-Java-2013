@@ -46,5 +46,15 @@ public class RMap {
 			DIO_FRISBEECATCH = 5,
 			DIO_LEADSCREWEND = 7,
 			DIO_SHOOTERREADY = 8;
-
+	
+	public static final String
+			DASH_INSTANCE_DRIVETRAIN = "Subsystem Drivetrain",
+			DASH_INSTANCE_SHOOTER = "Subsystem Shooter",
+			DASH_INSTANCE_SHOOTER_TRAY = "Subsystem Shooter-Tray",
+			DASH_SHOOTER_ANGLE = "Shooter Angle",
+			DASH_SHOOTER_SCALE = "Shooter Scale",
+			DASH_SHOOTER_LIMIT = "Shooter Limit",
+			DASH_SHOOTER_AUTO_ANGLE = "Shooter Auto Angle",
+			DASH_COMPRESSOR_RUNNING = "Compressor State";
+	
 }
