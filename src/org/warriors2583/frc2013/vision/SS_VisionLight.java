@@ -42,7 +42,7 @@ public class SS_VisionLight extends Subsystem {
 		return ledRing.get() == Value.kOn;
 	}
 
-    public void initDefaultCommand() {
+    public static void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }

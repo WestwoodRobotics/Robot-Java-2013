@@ -36,7 +36,7 @@ public class SS_LiftHooks extends Subsystem {
 		hooks.set(var);
 	}
 	
-    public void initDefaultCommand() {
+    public static void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }

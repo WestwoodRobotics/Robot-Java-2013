@@ -50,14 +50,12 @@ public class WestwoodBot extends IterativeRobot {
 		//Disable ONLY FOR DEBUG
 		//RE-ENABLE BEFORE DEPLOY
 		Watchdog.getInstance().setEnabled(true);
-		
-		SmartDashboard.putNumber(RMap.DASH_SHOOTER_SCALE, 0.4);
-		SmartDashboard.putNumber(RMap.DASH_SHOOTER_AUTO_ANGLE, 177);
 	}
 
 	public void autonomousInit(){
 		auton.start();
 		if(!SS_Compressor.isOn()) compressor.start();
+		Runtime.getRuntime().gc();
 	}
 
 	/**
@@ -66,7 +64,7 @@ public class WestwoodBot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		// feed the user watchdog at every period when in autonomous
 		Watchdog.getInstance().feed();
-		
+		SmartDashboard.putString(RMap.DASH_MEMORY_STATUS, Runtime.getRuntime().freeMemory()+"/"+Runtime.getRuntime().totalMemory());
 		Scheduler.getInstance().run();
 	}
 
@@ -76,6 +74,7 @@ public class WestwoodBot extends IterativeRobot {
 
 	public void disabledInit(){
 		compressor.cancel();
+		Runtime.getRuntime().gc();
 	}
 
 	/**
@@ -86,7 +85,8 @@ public class WestwoodBot extends IterativeRobot {
 	public void disabledPeriodic() {
 		// feed the user watchdog at every period when in autonomous
 		Watchdog.getInstance().feed();
-
+		SmartDashboard.putString(RMap.DASH_MEMORY_STATUS, Runtime.getRuntime().freeMemory()+"/"+Runtime.getRuntime().totalMemory());
+		Scheduler.getInstance().run();
 	}
 
 	/**
@@ -109,6 +109,7 @@ public class WestwoodBot extends IterativeRobot {
 		if(!SS_Compressor.isOn()) compressor.start();
 		(new C_LiftHooksUp()).start();
 		(new CG_TeleopRun()).start();
+		Runtime.getRuntime().gc();
 	}
 
 	/**
@@ -120,7 +121,7 @@ public class WestwoodBot extends IterativeRobot {
 		SmartDashboard.putNumber(RMap.DASH_SHOOTER_ANGLE, SS_ShooterTray.getAngle());
 		SmartDashboard.putBoolean(RMap.DASH_SHOOTER_LIMIT, SS_ShooterTray.atLimit());
 		SmartDashboard.putBoolean(RMap.DASH_COMPRESSOR_RUNNING, SS_Compressor.isRunning());
-		
+		SmartDashboard.putString(RMap.DASH_MEMORY_STATUS, Runtime.getRuntime().freeMemory()+"/"+Runtime.getRuntime().totalMemory());
 		Scheduler.getInstance().run();
 	}
 	

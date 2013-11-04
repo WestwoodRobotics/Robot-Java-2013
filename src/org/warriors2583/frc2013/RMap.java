@@ -50,17 +50,22 @@ public class RMap {
 			DIO_SHOOTERREADY = 8;
 	
 	public static final String
-			DASH_INSTANCE_DRIVETRAIN = "Subsystem Drivetrain",
-			DASH_INSTANCE_SHOOTER = "Subsystem Shooter",
-			DASH_INSTANCE_SHOOTER_TRAY = "Subsystem Shooter-Tray",
-			DASH_INSTANCE_COMPRESSOR = "Subsystem Compressor",
-			DASH_INSTANCE_LIFT_HOOKS = "Subsystem Lift Hooks",
-			DASH_INSTANCE_VISION_LIGHT = "Subsystem Vision Light",
+			DASH_INSTANCE_DRIVETRAIN = "Subsystem-Drivetrain",
+			DASH_INSTANCE_SHOOTER = "Subsystem-Shooter",
+			DASH_INSTANCE_SHOOTER_TRAY = "Subsystem-ShooterTray",
+			DASH_INSTANCE_COMPRESSOR = "Subsystem-Compressor",
+			DASH_INSTANCE_LIFT_HOOKS = "Subsystem-LiftHooks",
+			DASH_INSTANCE_VISION_LIGHT = "Subsystem-VisionLight",
 			
-			DASH_SHOOTER_ANGLE = "Shooter Angle",
-			DASH_SHOOTER_SCALE = "Shooter Scale",
-			DASH_SHOOTER_LIMIT = "Shooter Limit",
-			DASH_SHOOTER_AUTO_ANGLE = "Shooter Auto Angle",
-			DASH_COMPRESSOR_RUNNING = "Compressor State";
+			DASH_MEMORY_STATUS = "System-Memory",
+			
+			DASH_SHOOTER_ANGLE = "ShooterAngle",
+			DASH_SHOOTER_SCALE = "ShooterScale",
+			DASH_SHOOTER_LIMIT = "ShooterLimit",
+			DASH_SHOOTER_AUTO_ANGLE = "ShooterAutoAngle",
+			DASH_COMPRESSOR_RUNNING = "CompressorState",
+
+			NETTABLE_DEFAULT_TABLE = "NetworkTables",
+			NETTABLE_DASH_LOG = "DashboardLod";
 	
 }
