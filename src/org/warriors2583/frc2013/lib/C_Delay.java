@@ -1,23 +1,27 @@
-package org.warriors2583.frc2013.shooter;
+package org.warriors2583.frc2013.lib;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-
 
 /**
  *
  * @author Austin Reuland
  */
-public class C_ShooterAtAngle extends Command {
+public class C_Delay extends Command {
 
-    public C_ShooterAtAngle() {
+	private final double sec;
+	private final Timer timer = new Timer();
+	
+    public C_Delay(double sec) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_ShooterAtAngle");
-		requires(SS_Shooter.getInstance());
+		super("C_Delay");
+		this.sec = sec;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+		timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -26,11 +30,12 @@ public class C_ShooterAtAngle extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return timer.get() >= sec;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+		timer.stop();
     }
 
     // Called when another command which requires one or more of the same

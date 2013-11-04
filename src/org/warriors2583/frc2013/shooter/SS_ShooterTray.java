@@ -20,9 +20,8 @@ public class SS_ShooterTray extends Subsystem {
     // here. Call these from Commands.
 	
 	private static final Potentiometer shooterAngle = new Potentiometer(RMap.POT_1, RMap.POT_1_AVGBITS, RMap.POT_1_OVRBITS);
-	private static final DigitalInput trayLimit = new DigitalInput(RMap.MODULE_DIO, RMap.DIO_LEADSCREWEND);
 	private static final LimitSwitchController leadScrew = new LimitSwitchController(new Victor(RMap.MODULE_MOTOR, RMap.MOTOR_LEADSCREW),
-			new SingleLimitSwitchSystem(new LimitSwitch(7, SwitchType.NO), SingleSystemType.TOP));
+			new SingleLimitSwitchSystem(new LimitSwitch(RMap.DIO_LEADSCREWEND, SwitchType.NO), SingleSystemType.TOP));
 
 	private static final SS_ShooterTray instance = new SS_ShooterTray();
 
@@ -56,6 +55,16 @@ public class SS_ShooterTray extends Subsystem {
 		if(getAngle() >= targetAngle) return -1;
 		if(getAngle() < targetAngle) return 1;
 		return 0;
+	}
+	
+	private static final double atRange = 3.5;
+	
+	public static boolean atTarget(){
+		return Math.abs(getAngle() - targetAngle) < atRange;
+	}
+
+	public static boolean atLimit(){
+		return leadScrew.atLimit();
 	}
 	
 	public static void holdPos(){

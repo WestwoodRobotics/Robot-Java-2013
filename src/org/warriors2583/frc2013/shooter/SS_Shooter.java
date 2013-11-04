@@ -3,8 +3,8 @@ package org.warriors2583.frc2013.shooter;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.warriors2583.frc2013.OI;
 import org.warriors2583.frc2013.RMap;
-import org.warriors2583.frc2013.lib.Potentiometer;
 
 /**
  *
@@ -33,17 +33,24 @@ public class SS_Shooter extends Subsystem{
 		super("SS_Shooter");
 	}
 	
-	private static double avgRPM = 0;
 	private static double rawRPM = 0;
 	
-	private static double targetAngle = 0;
-	
 	public static double getAvgRPM(){
-		return avgRPM;
+		rawRPM = (rawRPM + shooterMotor.get())/2;
+		return rawRPM;
 	}
 	
 	public static double getRawRPM(){
 		return rawRPM;
+	}
+	
+	public static double getSpeed(){
+		return shooterMotor.getSpeed();
+	}
+	
+	public static void setSpeed(double speed){
+		double scale = OI.getShooterSpeedScale();
+		shooterMotor.set((SS_ShooterTray.getAngle() <= 200 ? speed : 0) * scale);
 	}
 	
 	public static void extendFeeder(){

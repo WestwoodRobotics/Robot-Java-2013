@@ -1,15 +1,14 @@
 package org.warriors2583.frc2013.shooter;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import org.warriors2583.frc2013.lib.C_Delay;
 
 /**
  *
  * @author Austin Reuland
  */
-public class CG_ShootFrisbee extends CommandGroup {
+public class CG_GotoAngle extends CommandGroup {
 
-    public CG_ShootFrisbee() {
+    public CG_GotoAngle(double angle) {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -26,11 +25,7 @@ public class CG_ShootFrisbee extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-		//addParallel(new CG_GotoAngle(170));
-		//addSequential(new C_StartShooter(1.0));
-		addSequential(new C_FeederExtend());
-		addSequential(new C_Delay(0.25));
-		addSequential(new C_FeederRetract());
-		addSequential(new C_Delay(0.5));
+		addSequential(new C_SetTargetAngle(angle));
+		addSequential(new C_MoveToTargetAngle());
     }
 }

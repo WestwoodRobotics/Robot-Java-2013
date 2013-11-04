@@ -22,17 +22,26 @@ public class LimitSwitchController implements SpeedController, IDeviceController
 	public double get() {
 		return motor.get();
 	}
+	
+	private double speed = 0;
 
 	public void set(double speed, byte syncGroup) {
 		speed = speed > 0 && !switchSystem.canUp() ? 0.00 : speed;
 		speed = speed < 0 && !switchSystem.canDown() ? 0.00 : speed;
 		motor.set(speed, syncGroup);
+		this.speed = speed;
 	}
 
 	public void set(double speed) {
 		speed = speed > 0 && !switchSystem.canUp() ? 0.00 : speed;
 		speed = speed < 0 && !switchSystem.canDown() ? 0.00 : speed;
 		motor.set(speed);
+		this.speed = speed;
+	}
+	
+	public boolean atLimit(){
+		if(speed >= 0 && !switchSystem.canUp()) return true;
+		return speed < 0 && !switchSystem.canDown();
 	}
 
 	public void disable() {

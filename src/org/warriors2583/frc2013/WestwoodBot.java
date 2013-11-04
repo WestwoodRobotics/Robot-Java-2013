@@ -9,7 +9,15 @@ package org.warriors2583.frc2013;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Watchdog;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.warriors2583.frc2013.autonomous.CG_AutonomousShoot;
+import org.warriors2583.frc2013.pneumatics.C_CompressorStart;
+import org.warriors2583.frc2013.pneumatics.SS_Compressor;
+import org.warriors2583.frc2013.shooter.SS_ShooterTray;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,6 +34,9 @@ public class WestwoodBot extends IterativeRobot {
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
+	OI oi = new OI();
+	CommandGroup auton = new CG_AutonomousShoot();
+	Command compressor = new C_CompressorStart();
 	public void robotInit(){    	
 		
 		// instantiate the command used for the autonomous period
@@ -40,8 +51,8 @@ public class WestwoodBot extends IterativeRobot {
 	}
 
 	public void autonomousInit(){
-		// schedule the autonomous command (example)
-		//autonomousCommand.start();
+		auton.start();
+		compressor.start();
 	}
 
 	/**
@@ -59,7 +70,7 @@ public class WestwoodBot extends IterativeRobot {
 	 */
 
 	public void disabledInit(){
-
+		compressor.cancel();
 	}
 
 	/**
@@ -89,6 +100,8 @@ public class WestwoodBot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		//autonomousCommand.cancel();
+		auton.cancel();
+		if(!SS_Compressor.isOn()) compressor.start();
 	}
 
 	/**
@@ -97,7 +110,15 @@ public class WestwoodBot extends IterativeRobot {
 	public void teleopPeriodic(){
 		// feed the user watchdog at every period when in autonomous
 		Watchdog.getInstance().feed();
+		SmartDashboard.putNumber("Shooter Angle", SS_ShooterTray.getAngle());
+		SmartDashboard.putBoolean("Shooter Limit", SS_ShooterTray.atLimit());
+		SmartDashboard.putBoolean("Compressor Running", SS_Compressor.isRunning());
 		
+		Scheduler.getInstance().run();
+	}
+	
+	public void testPeriodic(){
+		LiveWindow.run();
 		Scheduler.getInstance().run();
 	}
 }

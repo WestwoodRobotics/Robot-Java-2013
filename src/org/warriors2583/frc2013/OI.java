@@ -1,6 +1,7 @@
 package org.warriors2583.frc2013;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -26,5 +27,9 @@ public class OI {
 	public static double getJShootRightX(){ return joy_shoot.getZ(); }
 	public static double getJShootRightY(){ return joy_shoot.getTwist(); }
 	public static double getJShootTrigger(){ return joy_shoot.getThrottle(); }
+	
+	public static double getShooterSpeedScale(){
+		return SmartDashboard.getNumber("ShooterScale", 0.75);
+	}
 }
 
