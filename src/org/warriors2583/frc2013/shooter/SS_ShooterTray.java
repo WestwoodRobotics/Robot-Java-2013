@@ -5,6 +5,11 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.warriors2583.frc2013.RMap;
 import org.warriors2583.frc2013.lib.Potentiometer;
+import org.warriors2583.frc2013.lib.controller.LimitSwitchController;
+import org.warriors2583.frc2013.lib.limitswitch.LimitSwitch;
+import org.warriors2583.frc2013.lib.limitswitch.LimitSwitch.SwitchType;
+import org.warriors2583.frc2013.lib.limitswitch.SingleLimitSwitchSystem;
+import org.warriors2583.frc2013.lib.limitswitch.SingleLimitSwitchSystem.SingleSystemType;
 
 /**
  *
@@ -16,7 +21,8 @@ public class SS_ShooterTray extends Subsystem {
 	
 	private static final Potentiometer shooterAngle = new Potentiometer(RMap.POT_1, RMap.POT_1_AVGBITS, RMap.POT_1_OVRBITS);
 	private static final DigitalInput trayLimit = new DigitalInput(RMap.MODULE_DIO, RMap.DIO_LEADSCREWEND);
-	private static final Victor leadScrew = new Victor(RMap.MODULE_MOTOR, RMap.MOTOR_LEADSCREW);
+	private static final LimitSwitchController leadScrew = new LimitSwitchController(new Victor(RMap.MODULE_MOTOR, RMap.MOTOR_LEADSCREW),
+			new SingleLimitSwitchSystem(new LimitSwitch(7, SwitchType.NO), SingleSystemType.TOP));
 
 	private static final SS_ShooterTray instance = new SS_ShooterTray();
 
@@ -40,6 +46,24 @@ public class SS_ShooterTray extends Subsystem {
 	
 	public static double getTargetAngle(){
 		return targetAngle;
+	}
+	
+	public static double getAngle(){
+		return shooterAngle.getAverage() * 60.0;
+	}
+		
+	public static int getDirToTarget(){
+		if(getAngle() >= targetAngle) return -1;
+		if(getAngle() < targetAngle) return 1;
+		return 0;
+	}
+	
+	public static void holdPos(){
+		leadScrew.set(0);
+	}
+	
+	public static void move(double speed){
+		leadScrew.set(speed);
 	}
 
     public void initDefaultCommand() {

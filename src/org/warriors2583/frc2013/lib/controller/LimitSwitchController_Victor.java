@@ -12,12 +12,12 @@ import org.warriors2583.frc2013.lib.limitswitch.ILimitSwitchSystem;
  *
  * @author Austin Reuland
  */
-public class SwitchController_Victor implements SpeedController, IDeviceController, PIDOutput, LiveWindowSendable {
+public class LimitSwitchController_Victor implements SpeedController, IDeviceController, PIDOutput, LiveWindowSendable {
 	
 	private final Victor motor;
 	private final ILimitSwitchSystem switchSystem;
 	
-	public SwitchController_Victor(Victor motor, ILimitSwitchSystem switchSystem){
+	public LimitSwitchController_Victor(Victor motor, ILimitSwitchSystem switchSystem){
 		this.motor = motor;
 		this.switchSystem = switchSystem;
 	}

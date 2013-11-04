@@ -2,19 +2,22 @@ package org.warriors2583.frc2013.lib.controller;
 
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.livewindow.LiveWindowSendable;
 import edu.wpi.first.wpilibj.parsing.IDeviceController;
+import edu.wpi.first.wpilibj.tables.ITable;
 import org.warriors2583.frc2013.lib.limitswitch.ILimitSwitchSystem;
 
 /**
  *
  * @author Austin Reuland
  */
-public class SwitchController implements SpeedController, IDeviceController, PIDOutput {
+public class LimitSwitchController_Talon implements SpeedController, IDeviceController, PIDOutput, LiveWindowSendable {
 	
-	private final SpeedController motor;
+	private final Talon motor;
 	private final ILimitSwitchSystem switchSystem;
 	
-	public SwitchController(SpeedController motor, ILimitSwitchSystem switchSystem){
+	public LimitSwitchController_Talon(Talon motor, ILimitSwitchSystem switchSystem){
 		this.motor = motor;
 		this.switchSystem = switchSystem;
 	}
@@ -42,4 +45,29 @@ public class SwitchController implements SpeedController, IDeviceController, PID
 	public void pidWrite(double output) {
 		motor.pidWrite(output);
 	}
+
+	public void updateTable() {
+		motor.updateTable();
+	}
+
+	public void startLiveWindowMode() {
+		motor.startLiveWindowMode();
+	}
+
+	public void stopLiveWindowMode() {
+		motor.stopLiveWindowMode();
+	}
+
+	public void initTable(ITable arg0) {
+		motor.initTable(arg0);
+	}
+
+	public ITable getTable() {
+		return motor.getTable();
+	}
+
+	public String getSmartDashboardType() {
+		return motor.getSmartDashboardType();
+	}
+
 }

@@ -35,7 +35,7 @@ public class Potentiometer implements PIDSource, LiveWindowSendable {
 		pot.setAverageBits(avgBits);
 		pot.setOversampleBits(ovrBits);
 	}
-	
+
 	/**
 	 * Get raw value
 	 * @return Potentiometer raw value
@@ -47,6 +47,17 @@ public class Potentiometer implements PIDSource, LiveWindowSendable {
 	 * @return Potentiometer raw voltage
 	 */
 	public double getVoltage() { return pot.getVoltage(); }
+		
+	private double lastRaw = 0;
+	
+	/**
+	 * Get an Averaged value from the pot
+	 * @return The average of the current and last values
+	 */
+	public double getAverage(){
+		lastRaw = (lastRaw + getVoltage())/2;
+		return lastRaw;
+	}
 	
 	public int getAverageBits() { return pot.getAverageBits(); }
 	

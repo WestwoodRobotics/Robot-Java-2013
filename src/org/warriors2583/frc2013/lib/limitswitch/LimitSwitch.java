@@ -22,9 +22,14 @@ public class LimitSwitch implements IStandardSwitch, IInputOutput, LiveWindowSen
 		public boolean getValue(boolean value){
 			return ((type == 1 && value) || (type == 2 && !value));
 		}
-		public final static SwitchType
-				NO = new SwitchType(1),
-				NC = new SwitchType(2);
+		/**
+		 * Normally Open Switch
+		 */
+		public static final SwitchType NO = new SwitchType(1);
+		/**
+		 * Normally Closed Switch
+		 */
+		public static final SwitchType NC = new SwitchType(2);
 	}
 	
 	private DigitalInput limitSwitch;
