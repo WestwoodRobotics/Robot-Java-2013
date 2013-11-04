@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.warriors2583.frc2013.RMap;
 
 /**
- *
+ * @see C_VisionLightOff
+ * @see C_VisionLightOn
  * @author Austin Reuland
  */
 public class SS_VisionLight extends Subsystem {

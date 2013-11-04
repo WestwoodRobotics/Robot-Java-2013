@@ -3,11 +3,17 @@ package org.warriors2583.frc2013.shooter;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * The GotoAngle Command Group.
+ * This CommandGroup triggers a sequence of commands to move the ShooterTray to
+ * the given angle.
  * @author Austin Reuland
  */
 public class CG_GotoAngle extends CommandGroup {
 
+	/**
+	 * The GotoAngle Command Group
+	 * @param angle The Angle to move to
+	 */
     public CG_GotoAngle(double angle) {
         // Add Commands here:
         // e.g. addSequential(new Command1());

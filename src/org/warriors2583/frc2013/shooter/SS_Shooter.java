@@ -7,7 +7,10 @@ import org.warriors2583.frc2013.OI;
 import org.warriors2583.frc2013.RMap;
 
 /**
- *
+ * @see C_FeederExtend
+ * @see C_FeederRetract
+ * @see C_StartShooter
+ * @see CG_ShootFrisbee
  * @author Austin Reuland
  */
 public class SS_Shooter extends Subsystem{

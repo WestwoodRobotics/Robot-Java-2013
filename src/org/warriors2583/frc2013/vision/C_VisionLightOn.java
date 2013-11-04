@@ -3,7 +3,8 @@ package org.warriors2583.frc2013.vision;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * @see SS_VisionLight
+ * @see C_VisionLightOff
  * @author Austin Reuland
  */
 public class C_VisionLightOn extends Command {

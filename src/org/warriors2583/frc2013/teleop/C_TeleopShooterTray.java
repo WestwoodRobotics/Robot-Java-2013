@@ -5,7 +5,7 @@ import org.warriors2583.frc2013.OI;
 import org.warriors2583.frc2013.shooter.SS_ShooterTray;
 
 /**
- *
+ * 
  * @author Austin Reuland
  */
 public class C_TeleopShooterTray extends Command {
