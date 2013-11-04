@@ -51,7 +51,8 @@ public class WestwoodBot extends IterativeRobot {
 		//RE-ENABLE BEFORE DEPLOY
 		Watchdog.getInstance().setEnabled(true);
 		
-		SmartDashboard.putNumber("", ROBOT_TASK_PRIORITY);
+		SmartDashboard.putNumber(RMap.DASH_SHOOTER_SCALE, 0.4);
+		SmartDashboard.putNumber(RMap.DASH_SHOOTER_AUTO_ANGLE, 177);
 	}
 
 	public void autonomousInit(){
@@ -116,10 +117,9 @@ public class WestwoodBot extends IterativeRobot {
 	public void teleopPeriodic(){
 		// feed the user watchdog at every period when in autonomous
 		Watchdog.getInstance().feed();
-		SmartDashboard.putNumber("Shooter Angle", SS_ShooterTray.getAngle());
-		SmartDashboard.putBoolean("Shooter Limit", SS_ShooterTray.atLimit());
-		SmartDashboard.putNumber(RMap.DASH_SHOOTER_SCALE, 0.4);
-		SmartDashboard.putBoolean("Compressor Running", SS_Compressor.isRunning());
+		SmartDashboard.putNumber(RMap.DASH_SHOOTER_ANGLE, SS_ShooterTray.getAngle());
+		SmartDashboard.putBoolean(RMap.DASH_SHOOTER_LIMIT, SS_ShooterTray.atLimit());
+		SmartDashboard.putBoolean(RMap.DASH_COMPRESSOR_RUNNING, SS_Compressor.isRunning());
 		
 		Scheduler.getInstance().run();
 	}

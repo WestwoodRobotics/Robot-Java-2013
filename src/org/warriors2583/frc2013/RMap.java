@@ -36,6 +36,8 @@ public class RMap {
 			SOLENOID_SUCTION_ROTATE = 3,
 			SOLENOID_FEEDER = 4,
 			SOLENOID_LIFT_VALVE = 5,
+			
+			MODULE_RELAY = 1,
 		
 			RELAY_COMPRESSOR = 1,
 			RELAY_LED = 2,
@@ -51,6 +53,10 @@ public class RMap {
 			DASH_INSTANCE_DRIVETRAIN = "Subsystem Drivetrain",
 			DASH_INSTANCE_SHOOTER = "Subsystem Shooter",
 			DASH_INSTANCE_SHOOTER_TRAY = "Subsystem Shooter-Tray",
+			DASH_INSTANCE_COMPRESSOR = "Subsystem Compressor",
+			DASH_INSTANCE_LIFT_HOOKS = "Subsystem Lift Hooks",
+			DASH_INSTANCE_VISION_LIGHT = "Subsystem Vision Light",
+			
 			DASH_SHOOTER_ANGLE = "Shooter Angle",
 			DASH_SHOOTER_SCALE = "Shooter Scale",
 			DASH_SHOOTER_LIMIT = "Shooter Limit",

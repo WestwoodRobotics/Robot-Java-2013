@@ -23,8 +23,6 @@ public class SingleLimitSwitchSystem implements ILimitSwitchSystem{
 	
 	private LimitSwitch limitSwitch;
 	private SingleSystemType type;
-	
-	public static final int SYSTEM_TOP = 1, SYSTEM_BOTTOM = 2;
 
 	public SingleLimitSwitchSystem(int channel, SwitchType switchType, SingleSystemType systemType){
 		this(new LimitSwitch(channel, switchType), systemType);

@@ -61,7 +61,10 @@ public class SS_Shooter extends Subsystem{
 		feederPiston.set(true);
 	}
 	
-	
+	public static void setFeeder(boolean state){
+		feederPiston.set(state);
+	}
+
 	/**
 	 * Get whether the feeder is extended or not
 	 * @return feederPiston state
