@@ -1,0 +1,10 @@
+org.warriors2583.frc2013
+org.warriors2583.frc2013.autonomous
+org.warriors2583.frc2013.drivetrain
+org.warriors2583.frc2013.lib
+org.warriors2583.frc2013.lib.controller
+org.warriors2583.frc2013.lib.limitswitch
+org.warriors2583.frc2013.pneumatics
+org.warriors2583.frc2013.shooter
+org.warriors2583.frc2013.teleop
+org.warriors2583.frc2013.vision
