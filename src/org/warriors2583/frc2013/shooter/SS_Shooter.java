@@ -38,6 +38,8 @@ public class SS_Shooter extends Subsystem{
 	
 	private static double rawRPM = 0;
 	
+	private static double targetSpeed = 0;
+	
 	public static double getAvgRPM(){
 		rawRPM = (rawRPM + shooterMotor.get())/2;
 		return rawRPM;
@@ -52,8 +54,16 @@ public class SS_Shooter extends Subsystem{
 	}
 	
 	public static void setSpeed(double speed){
-		double scale = OI.getShooterSpeedScale();
-		shooterMotor.set((SS_ShooterTray.getAngle() <= 200 ? speed : 0) * scale);
+		shooterMotor.set(speed * OI.getShooterSpeedScale());
+	}
+	
+	public static double getTargetSpeed(){
+		return targetSpeed;
+	}
+	
+	public static void setTargetSpeed(double speed){
+		targetSpeed = speed;
+		setSpeed(speed);
 	}
 	
 	public static void extendFeeder(){
@@ -79,5 +89,6 @@ public class SS_Shooter extends Subsystem{
 	public void initDefaultCommand(){
 		// Set the default command for a subsystem here.
 		//setDefaultCommand(new MySpecialCommand());
+		//setDefaultCommand(new C_RunShooterMotor());
 	}
 }

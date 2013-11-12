@@ -6,11 +6,11 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author Austin Reuland
  */
-public class C_StartShooter extends Command {
+public class C_SetShooterSpeed extends Command {
 
 	private final double speed;
 	
-    public C_StartShooter(double speed) {
+    public C_SetShooterSpeed(double speed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 		super("C_StartShooter");

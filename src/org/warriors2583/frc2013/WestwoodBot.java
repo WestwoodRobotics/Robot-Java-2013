@@ -13,12 +13,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.warriors2583.frc2013.autonomous.CG_AutonomousShoot;
+import org.warriors2583.frc2013.lib.C_UpdateDashboard;
 import org.warriors2583.frc2013.pneumatics.C_CompressorStart;
 import org.warriors2583.frc2013.pneumatics.C_LiftHooksUp;
 import org.warriors2583.frc2013.pneumatics.SS_Compressor;
-import org.warriors2583.frc2013.shooter.SS_ShooterTray;
 import org.warriors2583.frc2013.teleop.CG_TeleopRun;
 
 /**
@@ -39,6 +38,7 @@ public class WestwoodBot extends IterativeRobot {
 	OI oi = new OI();
 	CommandGroup auton = new CG_AutonomousShoot();
 	Command compressor = new C_CompressorStart();
+	Command dashUpdater = new C_UpdateDashboard();
 	public void robotInit(){    	
 		
 		// instantiate the command used for the autonomous period
@@ -50,12 +50,14 @@ public class WestwoodBot extends IterativeRobot {
 		//Disable ONLY FOR DEBUG
 		//RE-ENABLE BEFORE DEPLOY
 		Watchdog.getInstance().setEnabled(true);
+		System.out.println("Robot Initiated");
+		dashUpdater.start();
 	}
 
 	public void autonomousInit(){
+		System.gc();
 		auton.start();
 		if(!SS_Compressor.isOn()) compressor.start();
-		Runtime.getRuntime().gc();
 	}
 
 	/**
@@ -64,7 +66,6 @@ public class WestwoodBot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		// feed the user watchdog at every period when in autonomous
 		Watchdog.getInstance().feed();
-		SmartDashboard.putString(RMap.DASH_MEMORY_STATUS, Runtime.getRuntime().freeMemory()+"/"+Runtime.getRuntime().totalMemory());
 		Scheduler.getInstance().run();
 	}
 
@@ -74,7 +75,7 @@ public class WestwoodBot extends IterativeRobot {
 
 	public void disabledInit(){
 		compressor.cancel();
-		Runtime.getRuntime().gc();
+		System.gc();
 	}
 
 	/**
@@ -85,7 +86,6 @@ public class WestwoodBot extends IterativeRobot {
 	public void disabledPeriodic() {
 		// feed the user watchdog at every period when in autonomous
 		Watchdog.getInstance().feed();
-		SmartDashboard.putString(RMap.DASH_MEMORY_STATUS, Runtime.getRuntime().freeMemory()+"/"+Runtime.getRuntime().totalMemory());
 		Scheduler.getInstance().run();
 	}
 
@@ -109,7 +109,7 @@ public class WestwoodBot extends IterativeRobot {
 		if(!SS_Compressor.isOn()) compressor.start();
 		(new C_LiftHooksUp()).start();
 		(new CG_TeleopRun()).start();
-		Runtime.getRuntime().gc();
+		System.gc();
 	}
 
 	/**
@@ -118,14 +118,12 @@ public class WestwoodBot extends IterativeRobot {
 	public void teleopPeriodic(){
 		// feed the user watchdog at every period when in autonomous
 		Watchdog.getInstance().feed();
-		SmartDashboard.putNumber(RMap.DASH_SHOOTER_ANGLE, SS_ShooterTray.getAngle());
-		SmartDashboard.putBoolean(RMap.DASH_SHOOTER_LIMIT, SS_ShooterTray.atLimit());
-		SmartDashboard.putBoolean(RMap.DASH_COMPRESSOR_RUNNING, SS_Compressor.isRunning());
-		SmartDashboard.putString(RMap.DASH_MEMORY_STATUS, Runtime.getRuntime().freeMemory()+"/"+Runtime.getRuntime().totalMemory());
+		
 		Scheduler.getInstance().run();
 	}
 	
 	public void testPeriodic(){
+		Watchdog.getInstance().feed();
 		LiveWindow.run();
 		Scheduler.getInstance().run();
 	}

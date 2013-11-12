@@ -28,7 +28,7 @@ public class RMap {
 			POT_1 = 2,
 			POT_1_AVGBITS = 5,
 			POT_1_OVRBITS = 6,
-		
+			
 			MODULE_SOLENOID_MAIN = 1,
 
 			SOLENOID_SUCTION_VALVE = 1,
@@ -56,12 +56,14 @@ public class RMap {
 			DASH_INSTANCE_COMPRESSOR = "Subsystem-Compressor",
 			DASH_INSTANCE_LIFT_HOOKS = "Subsystem-LiftHooks",
 			DASH_INSTANCE_VISION_LIGHT = "Subsystem-VisionLight",
+			DASH_INSTANCE_DASHBOARD = "Subsystem-Dashboard",
 			
 			DASH_MEMORY_STATUS = "System-Memory",
 			
 			DASH_SHOOTER_ANGLE = "ShooterAngle",
 			DASH_SHOOTER_SCALE = "ShooterScale",
 			DASH_SHOOTER_LIMIT = "ShooterLimit",
+			DASH_SHOOTER_SPEED = "ShooterSpeed",
 			DASH_SHOOTER_AUTO_ANGLE = "ShooterAutoAngle",
 			DASH_COMPRESSOR_RUNNING = "CompressorState",
 

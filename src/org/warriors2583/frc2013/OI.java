@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.warriors2583.frc2013.drivetrain.SS_Drivetrain;
+import org.warriors2583.frc2013.lib.SS_Dashboard;
 import org.warriors2583.frc2013.pneumatics.C_LiftHooksDown;
 import org.warriors2583.frc2013.pneumatics.C_LiftHooksUp;
 import org.warriors2583.frc2013.pneumatics.SS_Compressor;
@@ -31,6 +32,7 @@ public class OI {
 		SmartDashboard.putData(RMap.DASH_INSTANCE_COMPRESSOR, SS_Compressor.getInstance());
 		SmartDashboard.putData(RMap.DASH_INSTANCE_LIFT_HOOKS, SS_LiftHooks.getInstance());
 		SmartDashboard.putData(RMap.DASH_INSTANCE_VISION_LIGHT, SS_VisionLight.getInstance());
+		SmartDashboard.putData(RMap.DASH_INSTANCE_DASHBOARD, SS_Dashboard.getInstance());
 		
 		joy_drive = new Joystick(RMap.JOY_DRIVE);
 		joy_shoot = new Joystick(RMap.JOY_SHOOT);

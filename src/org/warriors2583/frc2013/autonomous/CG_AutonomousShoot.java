@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.warriors2583.frc2013.lib.C_Delay;
 import org.warriors2583.frc2013.shooter.CG_GotoAngle;
 import org.warriors2583.frc2013.shooter.CG_ShootFrisbee;
-import org.warriors2583.frc2013.shooter.C_StartShooter;
+import org.warriors2583.frc2013.shooter.C_SetShooterSpeed;
 
 /**
  *
@@ -29,8 +29,8 @@ public class CG_AutonomousShoot extends CommandGroup {
 		// e.g. if Command1 requires chassis, and Command2 requires arm,
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
+		addSequential(new C_SetShooterSpeed(1));
 		addSequential(new CG_GotoAngle(177));
-		addSequential(new C_StartShooter(1));
 		addSequential(new C_Delay(0.5));
 		addSequential(new CG_ShootFrisbee());
 		addSequential(new CG_ShootFrisbee());
