@@ -28,7 +28,7 @@ public class SS_Shooter extends Subsystem{
 	
 	static{
 		//Enable safety (if program not fed, motor will stop)
-		shooterMotor.setSafetyEnabled(true);
+		shooterMotor.setSafetyEnabled(false);
 		
 	}
 	

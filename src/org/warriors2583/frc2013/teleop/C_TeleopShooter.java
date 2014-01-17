@@ -23,8 +23,8 @@ public class C_TeleopShooter extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		SS_Shooter.setFeeder(OI.getJShootButton(2));
-		SS_Shooter.setTargetSpeed(OI.getJShootThrottle());
+		SS_Shooter.setFeeder(!OI.getJDriveButton(2));
+		SS_Shooter.setTargetSpeed(OI.getJDriveThrottle());
     }
 
     // Make this return true when this Command no longer needs to run execute()

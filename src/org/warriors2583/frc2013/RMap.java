@@ -40,7 +40,7 @@ public class RMap {
 			MODULE_RELAY = 1,
 		
 			RELAY_COMPRESSOR = 1,
-			RELAY_LED = 2,
+			RELAY_LED = 3,
 
 			MODULE_DIO = 1,
 		 

@@ -17,7 +17,7 @@ public class C_LiftHooksDown extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		SS_LiftHooks.set(false);
+		SS_LiftHooks.down();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -26,7 +26,7 @@ public class C_LiftHooksDown extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return SS_LiftHooks.get() == false;
+        return SS_LiftHooks.isDown();
     }
 
     // Called once after isFinished returns true

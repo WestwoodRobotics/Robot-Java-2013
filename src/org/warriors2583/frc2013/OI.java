@@ -37,30 +37,30 @@ public class OI {
 		joy_drive = new Joystick(RMap.JOY_DRIVE);
 		joy_shoot = new Joystick(RMap.JOY_SHOOT);
 		
-		liftHooksUpButton = new JoystickButton(joy_shoot, 3);
+		liftHooksUpButton = new JoystickButton(joy_drive, 3);
 		liftHooksUpButton.whenPressed(new C_LiftHooksUp());
-		liftHooksDownButton = new JoystickButton(joy_shoot, 4);
+		liftHooksDownButton = new JoystickButton(joy_drive, 4);
 		liftHooksDownButton.whenPressed(new C_LiftHooksDown());
 		
-		visionLightOffButton = new JoystickButton(joy_shoot, 7);
+		visionLightOffButton = new JoystickButton(joy_drive, 7);
 		visionLightOffButton.whenPressed(new C_VisionLightOff());
-		visionLightOnButton = new JoystickButton(joy_shoot, 8);
+		visionLightOnButton = new JoystickButton(joy_drive, 8);
 		visionLightOnButton.whenPressed(new C_VisionLightOn());
 	}
 
-	public static double getJDriveLeftX(){ return joy_drive.getX(); }
-	public static double getJDriveLeftY(){ return joy_drive.getY(); }
-	public static double getJDriveRightX(){ return joy_drive.getZ(); }
-	public static double getJDriveRightY(){ return joy_drive.getTwist(); }
-	public static double getJDriveThrottle(){ return joy_drive.getThrottle(); }
+	public static double getJDriveLeftX(){ return -joy_drive.getX(); }
+	public static double getJDriveLeftY(){ return -joy_drive.getY(); }
+	public static double getJDriveRightX(){ return -joy_drive.getThrottle(); }
+	public static double getJDriveRightY(){ return -joy_drive.getRawAxis(5); }
+	public static double getJDriveThrottle(){ return joy_drive.getZ(); }
 	
 	public static boolean getJDriveButton(int button){ return joy_drive.getRawButton(button); }
 	
-	public static double getJShootLeftX(){ return joy_shoot.getX(); }
-	public static double getJShootLeftY(){ return joy_shoot.getY(); }
-	public static double getJShootRightX(){ return joy_shoot.getZ(); }
-	public static double getJShootRightY(){ return joy_shoot.getTwist(); }
-	public static double getJShootThrottle(){ return joy_shoot.getThrottle(); }
+	public static double getJShootLeftX(){ return -joy_shoot.getX(); }
+	public static double getJShootLeftY(){ return -joy_shoot.getY(); }
+	public static double getJShootRightX(){ return -joy_shoot.getThrottle(); }
+	public static double getJShootRightY(){ return -joy_shoot.getRawAxis(5); }
+	public static double getJShootThrottle(){ return joy_shoot.getZ(); }
 	
 	public static boolean getJShootButton(int button){ return joy_shoot.getRawButton(button); }
 	

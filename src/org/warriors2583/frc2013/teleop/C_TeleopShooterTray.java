@@ -23,7 +23,7 @@ public class C_TeleopShooterTray extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		SS_ShooterTray.move(OI.getJShootLeftY());
+		SS_ShooterTray.move(OI.getJDriveRightY());
     }
 
     // Make this return true when this Command no longer needs to run execute()

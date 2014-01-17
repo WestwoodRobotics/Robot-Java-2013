@@ -107,7 +107,7 @@ public class WestwoodBot extends IterativeRobot {
 		//autonomousCommand.cancel();
 		auton.cancel();
 		if(!SS_Compressor.isOn()) compressor.start();
-		(new C_LiftHooksUp()).start();
+		//(new C_LiftHooksUp()).start();
 		(new CG_TeleopRun()).start();
 		System.gc();
 	}

@@ -23,7 +23,9 @@ public class C_TeleopDrive extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		SS_Drivetrain.arcade(OI.getJDriveLeftY(), OI.getJDriveRightX());
+		boolean scale = OI.getJDriveButton(5);
+		SS_Drivetrain.arcade(OI.getJDriveLeftY() * (scale ? 0.7 : 1),
+				OI.getJDriveRightX() * (scale ? 0.75 : 1));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
